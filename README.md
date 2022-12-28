@@ -10,7 +10,18 @@ Run Docker Build:
 docker build .
 ```
 
-## Local Server
-1. Start server `$ docker-compose run --rm --service-ports rep-tracker`
+## Local Setup
+Run Migrations:
+```
+make migrations
+```
+
+Create a Superuser:
+```
+make create_superuser
+```
+
+Start Local Server:
+1. Run `make dev_server`
 2. In a browser open http://localhost:8000/
 
