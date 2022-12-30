@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'daily_logger.apps.DailyLoggerConfig',
+    'workout_routine.apps.WorkoutRoutineConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

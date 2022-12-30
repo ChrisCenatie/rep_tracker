@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DailyLoggerConfig(AppConfig):
+class WorkoutRoutineConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'daily_logger'
+    name = 'workout_routine'
