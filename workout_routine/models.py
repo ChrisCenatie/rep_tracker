@@ -9,5 +9,7 @@ class Exercise(models.Model):
         return self.name
 
 class Workout(models.Model):
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
-    reps = models.IntegerField(blank=True,validators=[MinValueValidator(0)])
+    exercise = models.ForeignKey(Exercise,on_delete=models.CASCADE)
+class WorkoutSet(models.Model):
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+    reps = models.IntegerField(blank=False,validators=[MinValueValidator(0)])
