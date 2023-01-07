@@ -7,4 +7,7 @@ create_superuser:
 dev_server:
 	docker-compose run --rm --service-ports rep-tracker
 
-.PHONY: migrations create_superuser dev_server
+runtests:
+	docker-compose run --rm rep-tracker bash -c "python ./manage.py test"
+
+.PHONY: migrations create_superuser dev_server runtests

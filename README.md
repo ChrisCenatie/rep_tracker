@@ -25,3 +25,8 @@ Start Local Server:
 1. Run `make dev_server`
 2. In a browser open http://localhost:8000/
 
+## Running Tests
+Run Tests:
+```
+make runtests
+```
