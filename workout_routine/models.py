@@ -10,6 +10,10 @@ class Exercise(models.Model):
 
 class Workout(models.Model):
     exercise = models.ForeignKey(Exercise,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.exercise.name
+
 class WorkoutSet(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
     reps = models.IntegerField(blank=False,validators=[MinValueValidator(0)])
