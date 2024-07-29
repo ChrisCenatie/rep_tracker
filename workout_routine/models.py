@@ -10,6 +10,7 @@ class Exercise(models.Model):
 
 class Workout(models.Model):
     exercise = models.ForeignKey(Exercise,on_delete=models.CASCADE)
+    datetime = models.DateTimeField(editable=True)
 
     def __str__(self):
         return self.exercise.name
