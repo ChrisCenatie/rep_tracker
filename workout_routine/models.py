@@ -8,6 +8,15 @@ class Exercise(models.Model):
     def __str__(self):
         return self.name
 
+    def json_list():
+        list = []
+        for exercise in Exercise.objects.all():
+            list.append({
+                "exercise": str(exercise),
+                "description": exercise.description
+            })
+        return {'exercises': list}
+
 class Workout(models.Model):
     exercise = models.ForeignKey(Exercise,on_delete=models.CASCADE)
     datetime = models.DateTimeField(editable=True)
