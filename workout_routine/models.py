@@ -2,14 +2,24 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 class Exercise(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     description = models.TextField()
 
     def __str__(self):
         return self.name
 
+    def json_list():
+        list = []
+        for exercise in Exercise.objects.all():
+            list.append({
+                "exercise": str(exercise),
+                "description": exercise.description
+            })
+        return {'exercises': list}
+
 class Workout(models.Model):
     exercise = models.ForeignKey(Exercise,on_delete=models.CASCADE)
+    datetime = models.DateTimeField(editable=True)
 
     def __str__(self):
         return self.exercise.name
@@ -17,3 +27,6 @@ class Workout(models.Model):
 class WorkoutSet(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
     reps = models.IntegerField(blank=False,validators=[MinValueValidator(0)])
+
+    def __str__(self):
+        return f'{self.workout}: {self.reps} reps'

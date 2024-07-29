@@ -3,7 +3,9 @@ Simple application for tracking workout stats overtime.
 
 ## Installation
 
-Install [Docker Desktop](https://docs.docker.com/get-docker/)
+For macOS users install [Orbstack](https://docs.orbstack.dev/quick-start)
+
+For all other users install [Docker Desktop](https://docs.docker.com/get-docker/)
 
 Run Docker Build:
 ```
