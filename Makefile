@@ -13,4 +13,7 @@ runtests:
 shell:
 	docker-compose run --rm rep-tracker bash -c "python ./manage.py shell"
 
-.PHONY: migrations create_superuser dev_server runtests shell
+docker_bash:
+	docker-compose run --rm rep-tracker bash
+
+.PHONY: migrations create_superuser dev_server runtests shell docker_bash
