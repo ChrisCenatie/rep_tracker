@@ -1,6 +1,18 @@
 import datetime
 from django.test import TestCase
+from django.db.utils import IntegrityError
 from workout_routine.models import Exercise, Workout, WorkoutSet
+
+class ExerciseTetstCase(TestCase):
+    def setUp(self):
+        self.exercise = Exercise.objects.create(name="Bench Press", description="Add weight to barbell and push")
+
+    def test_exercise_instances_must_have_a_unique_name(self):
+        with self.assertRaises(IntegrityError) as e:
+            Exercise.objects.create(name="Bench Press", description="Can't have same Name")
+
+        exception = e.exception
+        self.assertIsInstance(exception, IntegrityError)
 
 class WorkoutTestCase(TestCase):
     def setUp(self):
