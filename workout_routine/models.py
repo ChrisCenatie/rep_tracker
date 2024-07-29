@@ -17,3 +17,6 @@ class Workout(models.Model):
 class WorkoutSet(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
     reps = models.IntegerField(blank=False,validators=[MinValueValidator(0)])
+
+    def __str__(self):
+        return f'{self.workout}: {self.reps} reps'
